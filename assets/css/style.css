@@ -1,0 +1,48 @@
+body {
+    background-image: url("../Media/wallpaper.jpeg");
+    margin: 0;
+}
+
+.welcome {
+    font-size: 50px;
+    font-family: "Do+Hyeon";
+    margin-left: 400px;
+    color: rgb(211, 112, 19)
+}
+
+.instructions {
+    font-size: 40px;
+    font-family: "Do+Hyeon";
+    color: rgb(168, 73, 73);
+}
+
+p {
+    color: white;
+}
+.custom-container {
+    margin-top: 40px;
+    border: dashed 2px green;
+    text-align: center;
+    padding: 30px;
+    margin-right: 0px;
+    margin-left: 0px;
+    width: 700px;
+}
+
+#custom-cardbody {
+    margin-bottom: 20px;
+}
+.custom-card {
+    margin-top: 40px;
+    opacity: 0.5;
+}
+
+.instruction-words{
+    color: white;
+}
+
+hr {
+    height: 1px;
+    color: #333333;
+    opacity: 1;
+}
