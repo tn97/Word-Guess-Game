@@ -1,19 +1,6 @@
 body {
-    background-image: url("../Media/wallpaper.jpeg");
+    background-image: url("../images/wallpaper.jpeg");
     margin: 0;
-}
-
-.welcome {
-    font-size: 50px;
-    font-family: "Do+Hyeon";
-    margin-left: 400px;
-    color: rgb(211, 112, 19)
-}
-
-.instructions {
-    font-size: 40px;
-    font-family: "Do+Hyeon";
-    color: rgb(168, 73, 73);
 }
 
 p {
@@ -29,12 +16,23 @@ p {
     width: 700px;
 }
 
-#custom-cardbody {
-    margin-bottom: 20px;
+.card-body {
+    padding: 0;
 }
+
 .custom-card {
-    margin-top: 40px;
-    opacity: 0.5;
+    margin: 40px auto 0;
+    opacity: 0.8;
+    max-width: 960px;
+}
+
+.card-title {
+    text-align: center;
+}
+
+h5 {
+    opacity: default;
+    color: blue;
 }
 
 .instruction-words{
@@ -45,4 +43,26 @@ hr {
     height: 1px;
     color: #333333;
     opacity: 1;
+}
+
+#titleImage, #gameoverImage, #youWinImage {
+    display: block;
+    margin: 0 auto;
+}
+
+#currentWord {
+    letter-spacing: 10px;
+}
+
+#pressAgain, #gameoverImage, #youWinImage {
+    display: block;
+}
+
+.gameplay-column {
+    padding-top: 20px;
+    border: 3px dashed #fff;
+    text-align: center;
+    margin-top: 20px;
+    min-height: 500px;
+    background-color: rgba(255, 255, 255, .3);
 }

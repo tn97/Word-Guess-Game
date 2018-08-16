@@ -10,14 +10,15 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/javascript/game.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
 </head>
 
 <body>
     <!-- theme will be games-Monster hunter world -->
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-2">
             <audio id="music" controls autoplay loop>
-                <source src="assets/Media/MHW-OS1.mp4" type="audio/mp4">
+                <source src="assets/sounds/MHW-OS1.mp3" type="audio/mp3">
                 <p>If you can read this, your browser does not support the audio in the background.</p>
             </audio>
             <br/>
@@ -25,57 +26,34 @@
             <p>Audio does not autoplay on chrome, so the controlbox will be left in. And on chrome the volume bar doesn't show,
                 so a separate volume bar will be added for now </p>
         </div>
+    </div> -->
 
-        <div class="col-10">
-            <div class="welcome">
-                ~Welcome to Hangman~
-                <br> The theme will be Gameszszszszsz!
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 gameplay-column">
+                <img id="youWinImage" src="assets/images/you-win.jpg" alt="You Win Image">
+                <img id="gameoverImage" src="assets/images/gameover.png" alt="Game Over">
+                <h2 id="pressAgain">Press Any Key to Try Again!~</h2>
+            </div>
+            <div class="col-md-6 gameplay-column">
+                <h2>Press A-Z to Take a Guess!~</h2>
+                <h3>Wins</h3>
+                <h5 id="totalWins"></h5>
+                <h4>Current Word</h4>
+                <h3 id="currentWord"></h3>
+                <h4>Guesses Remaining</h4>
+                <h6 id="remainingGuesses"></h6>
+                <h4>Letters Guessed</h4>
+                <h id="guessedLetters">
+                    </h3>
             </div>
         </div>
     </div>
 
-
-    <div class="row">
-        <div class="col-5">
-            <div class="container custom-container">
-                <div class="instructions">
-                    <h1>Instructions</h1>
-                </div>
-            </div>
-            <div class="instruction-words">
-                What the fuck did you just fucking say about me, you little bitch? I'll have you know I graduated top of my class in the
-                Navy Seals, and I've been involved in numerous secret raids on Al-Quaeda, and I have over 300 confirmed kills.
-                I am trained in gorilla warfare and I'm the top sniper in the entire US armed forces. You are nothing to
-                me but just another target. I will wipe you the fuck out with precision the likes of which has never been
-                seen before on this Earth, mark my fucking words. You think you can get away with saying that shit to me
-                over the Internet? Think again, fucker. As we speak I am contacting my secret network of spies across the
-                USA and your IP is being traced right now so you better prepare for the storm, maggot. The storm that wipes
-                out the pathetic little thing you call your life. You're fucking dead, kid. I can be anywhere, anytime, and
-                I can kill you in over seven hundred ways, and that's just with my bare hands. Not only am I extensively
-                trained in unarmed combat, but I have access to the entire arsenal of the United States Marine Corps and
-                I will use it to its full extent to wipe your miserable ass off the face of the continent, you little shit.
-                If only you could have known what unholy retribution your little "clever" comment was about to bring down
-                upon you, maybe you would have held your fucking tongue. But you couldn't, you didn't, and now you're paying
-                the price, you goddamn idiot. I will shit fury all over you and you will drown in it. You're fucking dead,
-                kiddo.
-            </div>
-        </div>
-        <div class="col-7">
-            <div class="card custom-card">
-                <div class="card-body" id="custom-cardbody">
-                    <h5 class="card-title">here is where the logo of the game will appear and maybe blink? also where the "_ _ _ _ _" gets entered
-                        into</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-                <hr/>
-                <div class="card-body">
-                    <h5 class="card-title">here is where the words and so on will go of right and wrong and etc.. counter etc</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
+    <script>
+        resetGame();
+        updateDisplay();
+    </script>
 </body>
 
 </html>
