@@ -1,35 +1,37 @@
-//start audio
-// function SetVolume(val) {
-//     var player = document.getElementById("music");
-//     console.log("Before: " + player.volume);
-//     player.volume = val / 100;
-//     console.log("After: " + player.volume);
-// };
-//end audio
+// start audio
+function SetVolume(val) {
+    var player = document.getElementById("music");
+    console.log("Before: " + player.volume);
+    player.volume = val / 100;
+    console.log("After: " + player.volume);
+};
+// end audio
+
 "use strict";
+
 // this chooses music depending on word selected by randomizer
 var selectableWords = [
     "POKEMON",
-    "MONSTERHUNTER",
+    "MONSTER HUNTER WORLD",
     "BORDERLANDS",
     "RUNESCAPE",
     "DARKSOULS",
     "HALO",
     "SKYRIM",
-    "CALLOFDUTY"
+    "CALL OF DUTY"
 ];
 
 var musicChange = selectableWords;
 
 var songObject = {
-    "pokemon": "../Media/lavenderTown.mp3",
-    "monster hunter world": "../Media/MHW-OS1.mp3",
-    "borderlands": "../Media/borderlands.mp3",
-    "runescape": "../Media/runescape.mp3",
-    "dark souls": "../Media/DS3.mp3",
-    "halo": "../HaloOST.mp3",
-    "skyrim": "../Media/dragonborn.mp3",
-    "Call of Duty": "../Media/MW1.mp3"
+    "POKEMON": "../sounds/lavenderTown.mp3",
+    "MONSTER HUNTER WORLD": "../sounds/MHW-OS1.mp3",
+    "BORDERLANDS": "../sounds/borderlands.mp3",
+    "RUNESCAPE": "../sounds/runescape.mp3",
+    "DARK SOULS": "../sounds/DS3.mp3",
+    "HALO": "../sounds/HaloOST.mp3",
+    "SKYRIM": "../sounds/dragonborn.mp3",
+    "CALL OF DUTY": "../sounds/MW1.mp3"
 };
 //end choosing music
 
@@ -49,13 +51,24 @@ function resetGame() {
     // Using the randomizer function to round the number down to the nearest whole number and chooses from the list of selectableWords
     currentWord = Math.floor(Math.random() * (selectableWords.length));
 
+    // if (currentWord === "POKEMON") {
+    //     music.getElementById("audio").src = songObject[musicChange]
+    // }
     //This clears out the arrays
     guessedLetters = [];
     guessingWord = [];
-
+//   var audiowin = new Audio()
+//   audiowin.src = soundsr
+//   audiowin.muted = mutetog  
+  // songObject[currentWord]
+    
     // Build the _ areas and clear out the last played game
     for (var i = 0; i < selectableWords[currentWord].length; i++) {
+        if (selectableWords[currentWord][i] == " ") {
+        guessingWord.push(" ");
+        } else {
         guessingWord.push("_");
+        }
     }
 
     // Hide the game over and you win images/texts
@@ -69,7 +82,7 @@ function resetGame() {
 
 // Updates the display on HTML
 function updateDisplay() {
-    document.getElementById("totalWins").innerText = wins;
+    document.getElementById("totalWins").innerText = Math.round(wins);
 
     //Displays how much of the word has already been guessed
     var guessingWordText = "";
@@ -105,20 +118,25 @@ function evaluateGuess(letter) {
             guessingWord[positions[i]] = letter;
         }
     }
+    checkWin();
+
 };
 
 // Checks for a win in the game
 function checkWin() {
+    console.log("hi");
     if (guessingWord.indexOf("_") === -1) {
-        document.getElementById("youwinImage").style.cssText = "display: block";
+        document.getElementById("youWinImage").style.cssText = "display: block";
         document.getElementById("pressAgain").style.cssText = "display: block";
-        wins++;
+        wins += 0.5;
         hasFinished = true;
     }
+    checkLoss();
 };
 
 // Checks for a loss in the game
 function checkLoss() {
+    console.log("hi loss")
     if (remainingGuesses <= 0) {
         document.getElementById("gameoverImage").style.cssText = "display: block";
         document.getElementById("pressAgain").style.cssText = "display: block";
@@ -155,36 +173,8 @@ document.onkeydown = function (event) {
 };
 
 
-
-// var acceptedLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-// var word = selectableWords(Math.floor(Math.random() * selectableWords.length));
-// console.log(word);
-// var answerArray = [];
-// for (var i = 0; i < word.length; i++) {
-//     answerArray[i] = "_";
-// }
-
-// var remainingLetters = selectableWords.length;
-// while (remainingLetters > 0) {
-//     alert(answerArray.join(" "));
-
-//     var guess = prompt("Guess a letter, or click Cancel to stop playing");
-//     if (guess === null) {
-//         break;
-//     } else if (guess.length !== 1) {
-//         alert("Please enter a single letter.");
-//     } else {
-//         for (var i = o; i < word.length; i++) {
-//             if (word[i] === guess) {
-//                 answerArray[i] = guess;
-//                 remainingLetters--;
-//             }
-//         }
-//     }
-// }
-// alert(answerArray.join(" "));
-// alert("Good Job! The answer was " + word);
-
 //WHAT NEEDS TO BE DONE:
-//ACTUAL RESETTING OF THE GAME WHEN WIN OR LOSE
 //MUSIC WHEN GAME BEGINS, CAN USE CODE ABOVE, JUST MAKE IT SO THAT THE NAMES ARE THE SAME AND MAKE A SCRIPT
+//GO THROUGH OG CODE TO SEE^^^^^^
+// add win or false, throw logic behind game running
+// if game isnt running, dont do anything when press key
