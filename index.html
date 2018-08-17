@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome to HANGMAN</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/javascript/game.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+</head>
+
+<body>
+    <!-- theme will be games-Monster hunter world -->
+    <div class="row">
+        <div class="col-2">
+            <audio id="music" controls autoplay loop>
+                <source src="assets/sounds/MHW-OS1.mp3" type="audio/mp3">
+                <p>If you can read this, your browser does not support the audio in the background.</p>
+            </audio>
+            <br/>
+            <input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"></input>
+            <p>Audio does not autoplay on chrome, so the controlbox will be left in. And on chrome the volume bar doesn't show,
+                so a separate volume bar will be added for now </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 gameplay-column">
+                <img id="youWinImage" src="assets/images/you-win.jpg" alt="You Win Image">
+                <img id="gameoverImage" src="assets/images/gameover.png" alt="Game Over">
+                <h2 id="pressAgain">Press Any Key to Try Again!~</h2>
+            </div>
+            <div class="col-md-6 gameplay-column">
+                <h2>Press A-Z to Take a Guess!~</h2>
+                <h3>Wins</h3>
+                <h5 id="totalWins"></h5>
+                <h4>Current Word</h4>
+                <h3 id="currentWord"></h3>
+                <h4>Guesses Remaining</h4>
+                <h6 id="remainingGuesses"></h6>
+                <h4>Letters Guessed</h4>
+                <h3 id="guessedLetters">
+                    </h3>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        resetGame();
+        updateDisplay();
+    </script>
+</body>
+
+</html>

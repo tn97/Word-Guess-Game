@@ -1,0 +1,68 @@
+body {
+    background-image: url("../images/wallpaper.jpeg");
+    margin: 0;
+}
+
+p {
+    color: white;
+}
+.custom-container {
+    margin-top: 40px;
+    border: dashed 2px green;
+    text-align: center;
+    padding: 30px;
+    margin-right: 0px;
+    margin-left: 0px;
+    width: 700px;
+}
+
+.card-body {
+    padding: 0;
+}
+
+.custom-card {
+    margin: 40px auto 0;
+    opacity: 0.8;
+    max-width: 960px;
+}
+
+.card-title {
+    text-align: center;
+}
+
+h5 {
+    opacity: default;
+    color: blue;
+}
+
+.instruction-words{
+    color: white;
+}
+
+hr {
+    height: 1px;
+    color: #333333;
+    opacity: 1;
+}
+
+#titleImage, #gameoverImage, #youWinImage {
+    display: block;
+    margin: 0 auto;
+}
+
+#currentWord {
+    letter-spacing: 10px;
+}
+
+#pressAgain, #gameoverImage, #youWinImage {
+    display: block;
+}
+
+.gameplay-column {
+    padding-top: 20px;
+    border: 3px dashed #fff;
+    text-align: center;
+    margin-top: 20px;
+    min-height: 500px;
+    background-color: rgba(255, 255, 255, .3);
+}
