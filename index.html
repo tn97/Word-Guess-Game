@@ -17,14 +17,7 @@
     <!-- theme will be games-Monster hunter world -->
     <div class="row">
         <div class="col-2">
-            <audio id="music" controls autoplay loop>
-                <source src="assets/sounds/MHW-OS1.mp3" type="audio/mp3">
-                <p>If you can read this, your browser does not support the audio in the background.</p>
-            </audio>
-            <br/>
-            <input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"></input>
-            <p>Audio does not autoplay on chrome, so the controlbox will be left in. And on chrome the volume bar doesn't show,
-                so a separate volume bar will be added for now </p>
+            <button class="btn custom-btn" onclick="music.play();">Hint</button>
         </div>
     </div>
 
@@ -36,16 +29,16 @@
                 <h2 id="pressAgain">Press Any Key to Try Again!~</h2>
             </div>
             <div class="col-md-6 gameplay-column">
-                <h2>Press A-Z to Take a Guess!~</h2>
-                <h3>Wins</h3>
+                <h2 id="a-to-z">Press A-Z to Take a Guess!~</h2>
+                <h3 id="wins">Wins</h3>
                 <h5 id="totalWins"></h5>
-                <h4>Current Word</h4>
+                <h4 id="currentWord">Current Word</h4>
                 <h3 id="currentWord"></h3>
-                <h4>Guesses Remaining</h4>
+                <h4 id="guessesRemaining">Guesses Remaining</h4>
                 <h6 id="remainingGuesses"></h6>
-                <h4>Letters Guessed</h4>
+                <h4 id="lettersGuessed">Letters Guessed</h4>
                 <h3 id="guessedLetters">
-                    </h3>
+                </h3>
             </div>
         </div>
     </div>

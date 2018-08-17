@@ -1,12 +1,11 @@
 // start audio
-function SetVolume(val) {
-    var player = document.getElementById("music");
-    console.log("Before: " + player.volume);
-    player.volume = val / 100;
-    console.log("After: " + player.volume);
-};
+// function SetVolume(val) {
+//     var player = document.getElementById("music");
+//     console.log("Before: " + player.volume);
+//     player.volume = val / 100;
+//     console.log("After: " + player.volume);
+// };
 // end audio
-
 "use strict";
 
 // this chooses music depending on word selected by randomizer
@@ -15,25 +14,16 @@ var selectableWords = [
     "MONSTER HUNTER WORLD",
     "BORDERLANDS",
     "RUNESCAPE",
-    "DARKSOULS",
+    "DARK SOULS",
     "HALO",
     "SKYRIM",
     "CALL OF DUTY"
 ];
 
-var musicChange = selectableWords;
+// End choosing music
 
-var songObject = {
-    "POKEMON": "../sounds/lavenderTown.mp3",
-    "MONSTER HUNTER WORLD": "../sounds/MHW-OS1.mp3",
-    "BORDERLANDS": "../sounds/borderlands.mp3",
-    "RUNESCAPE": "../sounds/runescape.mp3",
-    "DARK SOULS": "../sounds/DS3.mp3",
-    "HALO": "../sounds/HaloOST.mp3",
-    "SKYRIM": "../sounds/dragonborn.mp3",
-    "CALL OF DUTY": "../sounds/MW1.mp3"
-};
-//end choosing music
+// Audio var setup
+var audioElement = document.createElement("audio");
 
 var maxErrors = 10; // The maximum number of errors the user can make
 var guessedLetters = []; // Stores the letters that the user has guessed
@@ -42,6 +32,7 @@ var guessingWord; // The word that is selected to be in the current game of Hang
 var remainingGuesses = 0; // How many tries the user has left
 var hasFinished = false; // A flag that will be used to see if the person has won
 var wins = 0; // Stores how many wins the user has under their belt
+var music = new Audio(); // Creates an audio element to link to and from the html
 
 // Used for resetting our game level variables
 function resetGame() {
@@ -51,31 +42,42 @@ function resetGame() {
     // Using the randomizer function to round the number down to the nearest whole number and chooses from the list of selectableWords
     currentWord = Math.floor(Math.random() * (selectableWords.length));
 
-    // if (currentWord === "POKEMON") {
-    //     music.getElementById("audio").src = songObject[musicChange]
-    // }
+    // if statements to choose which song gets played
+    if (currentWord === 0) {
+        music.src = "assets/sounds/lavenderTown.mp3"
+    } else if (currentWord === 1) {
+        music.src = "assets/sounds/MHW-OS1.mp3"
+    } else if (currentWord === 2) {
+        music.src = "assets/sounds/borderlands.mp3"
+    } else if (currentWord === 3) {
+        music.src = "assets/sounds/runescape.mp3"
+    } else if (currentWord === 4) {
+        music.src = "assets/sounds/DS3.mp3"
+    } else if (currentWord === 5) {
+        music.src = "assets/sounds/HaloOST.mp3"
+    } else if (currentWord === 6) {
+        music.src = "assets/sounds/dragonborn.mp3"
+    } else if (currentWord === 7) {
+        music.src = "assets/sounds/MW1.mp3"
+    }
+
     //This clears out the arrays
     guessedLetters = [];
     guessingWord = [];
-//   var audiowin = new Audio()
-//   audiowin.src = soundsr
-//   audiowin.muted = mutetog  
-  // songObject[currentWord]
-    
+
     // Build the _ areas and clear out the last played game
     for (var i = 0; i < selectableWords[currentWord].length; i++) {
         if (selectableWords[currentWord][i] == " ") {
-        guessingWord.push(" ");
+            guessingWord.push(" ");
         } else {
-        guessingWord.push("_");
+            guessingWord.push("_");
         }
-    }
+    };
 
     // Hide the game over and you win images/texts
     document.getElementById("pressAgain").style.cssText = "display: none";
     document.getElementById("gameoverImage").style.cssText = "display: none";
     document.getElementById("youWinImage").style.cssText = "display: none";
-    console.log("displayNoneWorking5")
     // Show display
     updateDisplay();
 };
@@ -171,10 +173,3 @@ document.onkeydown = function (event) {
         }
     }
 };
-
-
-//WHAT NEEDS TO BE DONE:
-//MUSIC WHEN GAME BEGINS, CAN USE CODE ABOVE, JUST MAKE IT SO THAT THE NAMES ARE THE SAME AND MAKE A SCRIPT
-//GO THROUGH OG CODE TO SEE^^^^^^
-// add win or false, throw logic behind game running
-// if game isnt running, dont do anything when press key

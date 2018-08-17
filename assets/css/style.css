@@ -16,6 +16,22 @@ p {
     width: 700px;
 }
 
+.theme-button-color {
+    color: blanchedalmond;
+}
+
+#gameoverImage {
+    width: 400px;
+    height: 300px;
+}
+
+.custom-btn {
+    margin: 30px;
+    padding: 30px; 
+    color: green;
+    font-family: "Do+Hyeon";
+    font-size: 30px;
+}
 .card-body {
     padding: 0;
 }
@@ -45,6 +61,10 @@ hr {
     opacity: 1;
 }
 
+#a-to-z, #wins, #currentWord, #guessesRemaining, #lettersGuessed {
+    font-family: "Do+Hyeon";
+    font-size: 45px;
+}
 #titleImage, #gameoverImage, #youWinImage {
     display: block;
     margin: 0 auto;
